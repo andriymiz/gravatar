@@ -1,0 +1,32 @@
+{
+    "name": "andriymiz/gravatar",
+    "description": "Gravatar for Laravel",
+    "keywords": ["gravatar", "laravel", "php"],
+    "homepage": "https://github.com/andriymiz/gravatar",
+    "type": "library",
+    "require": {
+        "php": ">=7.2.0",
+        "illuminate/support": "~5.8.0|^6.0|^7.0|^8.0|^9.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Andriymiz\\Gravatar\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Andriymiz\\Gravatar\\GravatarServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrii Miz",
+            "email": "andriy.miz.v@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev"
+}

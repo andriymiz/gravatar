@@ -38,11 +38,41 @@ To associate gravatar with a model, the model must implement the following inter
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Andriymiz\Gravatar\HasGravatar;
-use Andriymiz\Gravatar\InteractsWithGravatar;
+use Andriymiz\Gravatar\Traits\GravatarTrait;
 
-class YourModel extends Model implements HasGravatar
+class User extends Model
 {
-    use InteractsWithGravatar;
+    use GravatarTrait;
 }
+```
+
+Optional you can change email field for identify user:
+By default is "email"
+```php
+    // in a model
+
+    /**
+     * For identifying an identity in Gravatar system
+     *
+     * @return string
+     */
+    private function getGravatarEmail(): string
+    {
+        return $this->email;
+    }
+
+```
+
+Somewhere in blade template:
+```html
+<div>
+    <img src="{{ $user->getGravatarInstance() }}" alt="Avatar" />
+</div>
+```
+
+Somewhere in blade template with bigger size:
+```html
+<section>
+    <img src="{{ $user->getGravatarInstance()->setSize(1024) }}" alt="Picture" />
+</section>
 ```

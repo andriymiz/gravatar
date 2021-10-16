@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Gravatar Image Settings
+    | Image Settings
     |--------------------------------------------------------------------------
     |
     | Here you may specify the image request settings
@@ -13,7 +13,18 @@ return [
     |
     */
 
-    'gravatar' => [
+    'image' => [
+
+        /*
+        |----------------------------------------------------------------------
+        | Base URL 
+        |----------------------------------------------------------------------
+        |
+        | You can specify url without secure protocol.
+        |
+        */
+    
+        'base_url' => 'https://www.gravatar.com/avatar',
 
         /*
         |----------------------------------------------------------------------
@@ -41,12 +52,12 @@ return [
         |
         | See https://gravatar.com/site/implement/images#default-image
         |
-        | Supported: null, URL, "404", "mp", "identicon", "monsterid",
+        | Supported: URL, "", "404", "mp", "identicon", "monsterid",
         |       "wavatar", "retro", "robohash", "blank"
         |
         */
 
-        'default_image' => null,
+        'default' => '',
 
         /*
         |----------------------------------------------------------------------
@@ -81,14 +92,43 @@ return [
         'rating' => 'g',
 
         /*
-        |--------------------------------------------------------------------------
-        | Gravatar image file-type extension
-        |--------------------------------------------------------------------------
+        |----------------------------------------------------------------------
+        | File-type extension
+        |----------------------------------------------------------------------
         |
-        | If you require a file-type extension (some places do) then you may also specify it.
+        | If you require a file-type extension (some places do) then you may
+        | also specify it.
+        |
+        | Supported: any extension
+        | Example: ".jpg", ".png", ".gif"
         |
         */
 
-        'extension' => null,
+        'extension' => '',
+    ],
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Profile Settings
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the profile request settings
+    |
+    | See https://gravatar.com/site/implement/profiles
+    |
+    */
+
+    'profile' => [
+
+        /*
+        |----------------------------------------------------------------------
+        | Base URL 
+        |----------------------------------------------------------------------
+        |
+        | You can specify url without secure protocol: http://www.gravatar.com
+        |
+        */
+    
+        'base_url' => 'https://www.gravatar.com',
     ],
 ];

@@ -23,7 +23,7 @@ class Gravatar
     /**
      * @var string
      */
-    private $hash;
+    protected $hash;
 
     /**
      * @var string
@@ -48,12 +48,12 @@ class Gravatar
     /**
      * @var int
      */
-    private $size = 80;
+    protected $size = 80;
 
     /**
      * @var string
      */
-    private $ext = '';
+    protected $ext = '';
 
     /**
      * @var GravatarProfile

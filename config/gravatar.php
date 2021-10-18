@@ -106,7 +106,7 @@ return [
 
         'extension' => '',
     ],
-    
+
     /*
     |--------------------------------------------------------------------------
     | Profile Settings
@@ -130,5 +130,45 @@ return [
         */
     
         'base_url' => 'https://www.gravatar.com',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Storage Settings
+    |--------------------------------------------------------------------------
+    |
+    | Additional feature for storing images on own server
+    |
+    */
+
+    'storage' => [
+
+        /*
+        |----------------------------------------------------------------------
+        | Storage Disk 
+        |----------------------------------------------------------------------
+        |
+        | The disk on which to store added files and derived images by default.
+        | Choose one of the disks you've configured in config/filesystems.php.
+        | Set to null if you wouldn't to store images on server.
+        |
+        */
+
+        'disk_name' => env('GRAVATAR_DISK', 'public'),
+
+        /*
+        |----------------------------------------------------------------------
+        | File name 
+        |----------------------------------------------------------------------
+        |
+        | Name template for images stored on disk.
+        | Available parameters:
+        | {hash} - Hashed Email;
+        | {size} - Image Size;
+        | {ext} - Image Extension;
+        |
+        */
+
+        'file_name' => '{hash}{size}{ext}',
     ],
 ];

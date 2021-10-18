@@ -1,8 +1,9 @@
 <?php
 
-namespace Andriymiz\Gravatar\Trait;
+namespace Andriymiz\Gravatar\Traits;
 
 use Andriymiz\Gravatar\Gravatar;
+use Andriymiz\Gravatar\GravatarStoragable;
 
 trait GravatarTrait
 {
@@ -33,7 +34,9 @@ trait GravatarTrait
         }
 
         // Setup Gravatar Image
-        $gravatar = new Gravatar($this->getGravatarEmail());
+        $gravatar = config('gravatar.storage.disk_name')
+            ? new GravatarStoragable($this->getGravatarEmail())
+            : new Gravatar($this->getGravatarEmail());
         $gravatar->setBaseUrl(config('gravatar.image.base_url'))
                  ->setDefault(config('gravatar.image.default'))
                  ->setForceDefault(config('gravatar.image.force_default'))

@@ -32,7 +32,7 @@ php artisan vendor:publish --provider="Andriymiz\Gravatar\GravatarServiceProvide
 
 ## Usage
 
-To associate gravatar with a model, the model must implement the following interface and trait:
+To associate gravatar with a model, the model must implement the following trait:
 
 ```php
 namespace App\Models;
@@ -75,4 +75,20 @@ Somewhere in blade template with bigger size:
 <section>
     <img src="{{ $user->getGravatarInstance()->setSize(1024) }}" alt="Picture" />
 </section>
+```
+
+Available setters:
+```php
+$gravatarInstance
+    ->setBaseUrl('https://secure.gravatar.com/avatar')
+    ->setDefault('retro')
+    ->setForceDefault(true)
+    ->setSize(1024)
+    ->setRating('pg')
+    ->setExtension('.png');
+```
+
+Available getters:
+```php
+$gravatarProfile = $gravatarInstance->getProfile();
 ```

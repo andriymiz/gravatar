@@ -6,8 +6,9 @@ use Andriymiz\Gravatar\Exceptions\InvalidEmailException;
 use Andriymiz\Gravatar\Exceptions\InvalidUrlException;
 use Andriymiz\Gravatar\Helpers\EmailHelper;
 use Andriymiz\Gravatar\Helpers\UrlHelper;
+use ArrayAccess;
 
-class GravatarProfile
+class GravatarProfile implements ArrayAccess
 {
     /**
      * @var string
@@ -74,11 +75,6 @@ class GravatarProfile
         $this->setEmail($email);
     }
 
-    public function __toString()
-    {
-        return (string) $this->email;
-    }
-
     /**
      * Set user email.
      *
@@ -143,5 +139,49 @@ class GravatarProfile
         }
 
         return $this;
+    }
+
+
+    public function offsetGet($offset)
+    {
+        switch ($offset) {
+            case 'email': return $this->email;
+            case 'id': return $this->id;
+            case 'hash': return $this->hash;
+            case 'requestHash': return $this->requestHash;
+            case 'profileUrl': return $this->profileUrl;
+            case 'preferredUsername': return $this->preferredUsername;
+            case 'thumbnailUrl': return $this->thumbnailUrl;
+            case 'photos': return $this->photos;
+            case 'name': return $this->name;
+            case 'displayName': return $this->displayName;
+            default: return null;
+        }
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        // Nothing
+    }
+
+    public function offsetExists($offset) 
+    {
+        return in_array($offset, [
+            'email',
+            'id',
+            'hash',
+            'requestHash',
+            'profileUrl',
+            'preferredUsername',
+            'thumbnailUrl',
+            'photos',
+            'name',
+            'displayName',
+        ]);
+    }
+    
+    public function offsetUnset($offset) 
+    {
+        // Nothing
     }
 }

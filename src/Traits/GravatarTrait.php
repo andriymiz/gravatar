@@ -37,11 +37,13 @@ trait GravatarTrait
         $gravatar = config('gravatar.storage.disk_name')
             ? new GravatarStoragable($this->getGravatarEmail())
             : new Gravatar($this->getGravatarEmail());
+
         $gravatar->setBaseUrl(config('gravatar.image.base_url'))
                  ->setDefault(config('gravatar.image.default'))
                  ->setForceDefault(config('gravatar.image.force_default'))
                  ->setSize(config('gravatar.image.size'))
-                 ->setRating(config('gravatar.image.rating'));
+                 ->setRating(config('gravatar.image.rating'))
+                 ->setExtension(config('gravatar.image.extension'));
 
         // Setup Gravatar Profile
         $gravatar->getProfile()
